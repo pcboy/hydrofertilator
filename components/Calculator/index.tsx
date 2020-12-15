@@ -18,7 +18,6 @@ import CalMagurt from "../../assets/cal-magurt.jpg";
 import Cannazym from "../../assets/cannazym.png";
 import Rhizotonic from "../../assets/rhizotonic.png";
 
-
 import { GEDosages } from "./GEDosages";
 
 const bottles = [
@@ -34,15 +33,13 @@ const bottles = [
   {
     name: "Cal Magurt",
     imageUri: CalMagurt,
-    dosages: [
-      { name: "All Stages", value: 100 },
-    ],
+    dosages: [{ name: "All Stages", value: 100 }],
   },
   {
     name: "Rhizotonic",
     imageUri: Rhizotonic,
     dosages: [
-      { name: "Growth Stage", value:400 },
+      { name: "Growth Stage", value: 400 },
       { name: "Healthy roots", value: 50 },
     ],
   },
