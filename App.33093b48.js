@@ -1016,4 +1016,4 @@ module.exports="ghe-flora.c62ca6ed.png";
 },{"react":"HdMw","@material-ui/core":"XQvP","mobx-react":"GTTz","../../stores/CalculatorStore":"N8Zv","./SCalculator":"pav8","./Utils":"qsZc","../../assets/armor-si.png":"LnL0","../../assets/cal-magurt.jpg":"hOlF","../../assets/cannazym.png":"lwyu","../../assets/rhizotonic.png":"gzXv","./GEDosages":"Aj0G"}],"NHn6":[function(require,module,exports) {
 "use strict";var e=this&&this.__importDefault||function(e){return e&&e.__esModule?e:{default:e}};Object.defineProperty(exports,"__esModule",{value:!0});var t=e(require("react")),r=e(require("react-dom")),u=e(require("./components/Calculator")),l=function(){return t.default.createElement(u.default,null)};r.default.render(t.default.createElement(l,null),document.getElementById("root"));
 },{"react":"HdMw","react-dom":"X9zx","./components/Calculator":"wuKS"}]},{},["NHn6"], null)
-//# sourceMappingURL=App.7d6e300c.js.map
+//# sourceMappingURL=App.33093b48.js.map
