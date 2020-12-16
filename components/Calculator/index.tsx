@@ -48,7 +48,7 @@ const bottles = [
     imageUri: Cannazym,
     dosages: [
       { name: "Normal", value: 250 },
-      { name: "Maximum Strength", value: 500 },
+      { name: "Max Strength", value: 500 },
     ],
   },
 ];
