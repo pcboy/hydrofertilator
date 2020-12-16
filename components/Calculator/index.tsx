@@ -23,6 +23,7 @@ import { GEDosages } from "./GEDosages";
 const bottles = [
   {
     name: "Armor Si",
+    uri: 'https://generalhydroponics.com/armor-si',
     imageUri: ArmorSi,
     dosages: [
       { name: "Mild Strength", value: 25 },
@@ -32,11 +33,13 @@ const bottles = [
   },
   {
     name: "Cal Magurt",
+    uri: "https://www.tamaplantfood.com/product/cal-magurt/",
     imageUri: CalMagurt,
     dosages: [{ name: "All Stages", value: 100 }],
   },
   {
     name: "Rhizotonic",
+    uri: "https://www.canna-uk.com/rhizotonic",
     imageUri: Rhizotonic,
     dosages: [
       { name: "Growth Stage", value: 400 },
@@ -45,6 +48,7 @@ const bottles = [
   },
   {
     name: "Cannazym",
+    uri: "https://www.canna-uk.com/cannazym",
     imageUri: Cannazym,
     dosages: [
       { name: "Normal", value: 250 },
@@ -65,7 +69,7 @@ const Bottle = ({ bottle }: { bottle: typeof bottles[0] }) => (
         }}
       >
         <b>{bottle.name}</b>
-        <a href={bottle.imageUri}>
+        <a href={bottle.uri} target="_blank" rel="noopener noreferrer">
           <img
             className="bottle"
             src={bottle.imageUri}
