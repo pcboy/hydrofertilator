@@ -13,6 +13,8 @@ import { observer } from "mobx-react";
 import { calculatorStore, computeMl } from "../../stores/CalculatorStore";
 import { SCalculator } from "./SCalculator";
 import { handleChangeNumber } from "./Utils";
+import styled from "styled-components";
+
 import ArmorSi from "../../assets/armor-si.png";
 import CalMagurt from "../../assets/cal-magurt.jpg";
 import Cannazym from "../../assets/cannazym.png";
@@ -23,7 +25,7 @@ import { GEDosages } from "./GEDosages";
 const bottles = [
   {
     name: "Armor Si",
-    uri: 'https://generalhydroponics.com/armor-si',
+    uri: "https://generalhydroponics.com/armor-si",
     imageUri: ArmorSi,
     dosages: [
       { name: "Mild Strength", value: 25 },
@@ -57,42 +59,48 @@ const bottles = [
   },
 ];
 
+const SBottle = styled.div`
+  border: 2px dashed #ababab;
+  display: flex;
+  align-items: center;
+  .bottle-left {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      max-height: 5rem;
+    }
+  }
+`;
+
 const Bottle = ({ bottle }: { bottle: typeof bottles[0] }) => (
-  <div className="column is-4">
-    <div className="columns is-mobile">
-      <div
-        className="column is-4"
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <b>{bottle.name}</b>
-        <a href={bottle.uri} target="_blank" rel="noopener noreferrer">
-          <img
-            className="bottle"
-            src={bottle.imageUri}
-            style={{ maxHeight: "10rem" }}
-          />
-        </a>
-      </div>
-      <div className="column align-items-center">
-        <div className="dosages">
-          {bottle.dosages.map((dose) => (
-            <React.Fragment key={`${bottle.name}_dose_${dose.name}`}>
-              {dose.name}:{" "}
-              <b>{`${computeMl(
-                calculatorStore.containerLiters,
-                dose.value
-              ).toFixed(2)} ml`}</b>
-              <br />
-            </React.Fragment>
-          ))}
-        </div>
+  <SBottle>
+    <div className="bottle-left">
+      <b>{bottle.name}</b>
+      <a href={bottle.uri} target="_blank" rel="noopener noreferrer">
+        <img
+          className="bottle"
+          src={bottle.imageUri}
+          style={{ maxHeight: "10rem" }}
+        />
+      </a>
+    </div>
+    <div className="bottle-right">
+      <div className="dosages">
+        {bottle.dosages.map((dose) => (
+          <React.Fragment key={`${bottle.name}_dose_${dose.name}`}>
+            {dose.name}:{" "}
+            <b>{`${computeMl(
+              calculatorStore.containerLiters,
+              dose.value
+            ).toFixed(2)} ml`}</b>
+            <br />
+          </React.Fragment>
+        ))}
       </div>
     </div>
-  </div>
+  </SBottle>
 );
 
 const Calculator = observer(() => {
@@ -101,14 +109,19 @@ const Calculator = observer(() => {
       <SCalculator>
         <h1>Hydroponics Fertilizer Calculator</h1>
         <div className="columns is-multiline is-mobile justify-center">
-          <div className="column is-narrow">Container size:</div>
+          <div
+            className="column is-narrow"
+            style={{ display: "flex", alignItems: "center" }}
+          >
+            Container size:
+          </div>
           <div className="column is-narrow">
             <Input
               type="number"
               style={{ width: "50%" }}
               value={calculatorStore.containerLiters}
+              onClick={(e) => e.target.select()}
               onChange={(e) => handleChangeNumber(e, "containerLiters")}
-              label="Container size"
               endAdornment={
                 <InputAdornment position="end">Liters</InputAdornment>
               }
@@ -120,7 +133,9 @@ const Calculator = observer(() => {
 
         <div className="columns is-multiline">
           {bottles.map((bottle) => (
-            <Bottle key={`bottle_${bottle.name}`} bottle={bottle}></Bottle>
+            <div key={`bottle_${bottle.name}`} className="column is-4">
+              <Bottle bottle={bottle}></Bottle>
+            </div>
           ))}
         </div>
       </SCalculator>
