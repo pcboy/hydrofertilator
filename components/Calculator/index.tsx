@@ -129,7 +129,13 @@ const Calculator = observer(() => {
           </div>
         </div>
 
-        <GEDosages style={{ marginBottom: "2rem", marginTop: "4rem" }} />
+        <GEDosages
+          style={{
+            marginBottom: "2rem",
+            marginTop: "4rem",
+            border: "2px dashed #ababab",
+          }}
+        />
 
         <div className="columns is-multiline">
           {bottles.map((bottle) => (
