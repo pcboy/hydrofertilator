@@ -138,20 +138,23 @@ const Calculator = observer(() => {
             </div>
           </div>
 
-          <GEDosages
-            style={{
-              marginBottom: "2rem",
-              marginTop: "4rem",
-              border: "2px dashed #ababab",
-            }}
-          />
-
-          <div className="columns is-multiline">
-            {bottles.map((bottle) => (
-              <div key={`bottle_${bottle.name}`} className="column is-4">
-                <Bottle bottle={bottle}></Bottle>
-              </div>
-            ))}
+          <div className="column is-12">
+            <GEDosages
+              style={{
+                marginBottom: "2rem",
+                marginTop: "4rem",
+                border: "2px dashed #ababab",
+              }}
+            />
+          </div>
+          <div className="column is-12">
+            <div className="columns is-multiline">
+              {bottles.map((bottle) => (
+                <div key={`bottle_${bottle.name}`} className="column is-4">
+                  <Bottle bottle={bottle}></Bottle>
+                </div>
+              ))}
+            </div>
           </div>
         </SCalculator>
       </div>
