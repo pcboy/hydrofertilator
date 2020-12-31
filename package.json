@@ -29,6 +29,7 @@
     "react": "^16.8.0",
     "react-contenteditable": "^3.3.4",
     "react-dom": "^16.8.0",
+    "react-github-corner": "^2.5.0",
     "react-is": "^17.0.1",
     "react-number-format": "^4.4.1",
     "react-numeric-input": "^2.2.3",

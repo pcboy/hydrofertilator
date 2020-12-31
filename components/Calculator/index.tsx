@@ -21,6 +21,7 @@ import Cannazym from "../../assets/cannazym.png";
 import Rhizotonic from "../../assets/rhizotonic.png";
 
 import { GEDosages } from "./GEDosages";
+import GithubCorner from "react-github-corner";
 
 const bottles = [
   {
@@ -105,47 +106,56 @@ const Bottle = ({ bottle }: { bottle: typeof bottles[0] }) => (
 
 const Calculator = observer(() => {
   return (
-    <div className="container" style={{ padding: "1rem" }}>
-      <SCalculator>
-        <h1>Hydroponics Fertilizer Calculator</h1>
-        <div className="columns is-multiline is-mobile justify-center">
-          <div
-            className="column is-narrow"
-            style={{ display: "flex", alignItems: "center" }}
-          >
-            Container size:
-          </div>
-          <div className="column is-narrow">
-            <Input
-              type="number"
-              style={{ width: "50%" }}
-              value={calculatorStore.containerLiters}
-              onClick={(e) => e.target.select()}
-              onChange={(e) => handleChangeNumber(e, "containerLiters")}
-              endAdornment={
-                <InputAdornment position="end">Liters</InputAdornment>
-              }
-            />
-          </div>
-        </div>
-
-        <GEDosages
-          style={{
-            marginBottom: "2rem",
-            marginTop: "4rem",
-            border: "2px dashed #ababab",
-          }}
-        />
-
-        <div className="columns is-multiline">
-          {bottles.map((bottle) => (
-            <div key={`bottle_${bottle.name}`} className="column is-4">
-              <Bottle bottle={bottle}></Bottle>
+    <>
+      <GithubCorner
+        href={"https://github.com/pcboy/hydrofertilator"}
+        bannerColor="#151513"
+        octoColor="#fff"
+        size={80}
+        direction="right"
+      />
+      <div className="container" style={{ padding: "1rem" }}>
+        <SCalculator>
+          <h1>Hydroponics Fertilizer Calculator</h1>
+          <div className="columns is-multiline is-mobile justify-center">
+            <div
+              className="column is-narrow"
+              style={{ display: "flex", alignItems: "center" }}
+            >
+              Container size:
             </div>
-          ))}
-        </div>
-      </SCalculator>
-    </div>
+            <div className="column is-narrow">
+              <Input
+                type="number"
+                style={{ width: "50%" }}
+                value={calculatorStore.containerLiters}
+                onClick={(e) => e.target.select()}
+                onChange={(e) => handleChangeNumber(e, "containerLiters")}
+                endAdornment={
+                  <InputAdornment position="end">Liters</InputAdornment>
+                }
+              />
+            </div>
+          </div>
+
+          <GEDosages
+            style={{
+              marginBottom: "2rem",
+              marginTop: "4rem",
+              border: "2px dashed #ababab",
+            }}
+          />
+
+          <div className="columns is-multiline">
+            {bottles.map((bottle) => (
+              <div key={`bottle_${bottle.name}`} className="column is-4">
+                <Bottle bottle={bottle}></Bottle>
+              </div>
+            ))}
+          </div>
+        </SCalculator>
+      </div>
+    </>
   );
 });
 
